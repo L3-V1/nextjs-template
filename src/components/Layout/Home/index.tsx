@@ -5,10 +5,10 @@ import Home from "./Home"
 import { DataProvider } from "@/contexts/DataContext"
 import { ServerData } from "@/@types/types"
 
-const HomeWrapper = ({ ...props }: ServerData) => {
+const HomeWrapper = ({ ...rest }: ServerData) => {
     return (
         <SnackbarProvider>
-            <DataProvider {...props}>
+            <DataProvider {...rest}>
                 <Home />
             </DataProvider>
         </SnackbarProvider>

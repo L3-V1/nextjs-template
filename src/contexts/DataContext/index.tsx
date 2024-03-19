@@ -4,9 +4,9 @@ import { PropsWithChildren, createContext, useContext } from "react"
 
 const DataContext = createContext<ServerData>({} as ServerData)
 
-export const DataProvider = ({ apiUrl, children }: PropsWithChildren<ServerData>) => {
+export const DataProvider = ({ children, ...rest }: PropsWithChildren<ServerData>) => {
     return (
-        <DataContext.Provider value={{ apiUrl }}>
+        <DataContext.Provider value={{ ...rest }}>
             {children}
         </DataContext.Provider>
     )
