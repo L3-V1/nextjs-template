@@ -8,6 +8,7 @@ type Data = ServerData & {
     setCurrentTab:Dispatch<SetStateAction<string>>
 
 }
+
 const DataContext = createContext<Data>({} as Data)
 
 export const DataProvider = ({ children, ...rest }: PropsWithChildren<ServerData>) => {
