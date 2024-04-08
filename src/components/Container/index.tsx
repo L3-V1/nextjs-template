@@ -2,7 +2,7 @@ import React, { ComponentProps } from "react"
 import { tv } from 'tailwind-variants'
 
 const container = tv({
-    base: 'flex flex-col w-full h-full justify-center items-center p-12 gap-12'
+    base: 'flex flex-col w-full h-full justify-center items-center p-6 gap-12'
 })
 
 type ContainerProps = ComponentProps<'div'>

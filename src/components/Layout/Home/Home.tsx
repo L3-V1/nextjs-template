@@ -7,7 +7,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { useData } from "@/contexts/DataContext"
 import { IconButton, Tab } from "@mui/material"
 import InfoIcon from '@mui/icons-material/Info'
-import ModalWrapper, { ModalAttributes } from "@/components/ModalWrapper"
+import { ModalAttributes } from "@/components/ModalWrapper"
 import ModalInfo from "./ModalInfo"
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
 
     return (
         <Container>
-            <Card.Root className="md:w-4/6 w-full">
+            <Card.Root className="md:w-10/12 w-full">
                 <Card.Header>
                     <span>NextJS - Template</span>
                     <IconButton
