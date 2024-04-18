@@ -1,19 +1,19 @@
 "use client"
 
 import React from "react"
-import { ServerData } from "@/@types/types"
+import { SnackbarProvider } from 'notistack'
 import { DataProvider } from "@/contexts/DataContext"
-import { SnackbarProvider } from "notistack"
-import Home from "./Home"
+import { ServerData } from "@/@types/types"
+import Template from "./Template"
 
-const HomeWrapper = ({ ...rest }: ServerData) => {
+const TemplateWrapper = ({ ...rest }: ServerData) => {
     return (
         <SnackbarProvider>
             <DataProvider {...rest}>
-                <Home />
+                <Template />
             </DataProvider>
         </SnackbarProvider>
     )
 }
 
-export default HomeWrapper
+export default TemplateWrapper
