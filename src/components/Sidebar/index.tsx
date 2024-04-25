@@ -1,3 +1,5 @@
+"use client"
+
 import React, { ReactNode } from "react"
 import {
     Box,
@@ -8,8 +10,11 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
+    Theme,
+    useMediaQuery,
 } from "@mui/material"
 import Link from "next/link"
+import { useDrawerContext } from "@/contexts/DrawerContext"
 
 const drawerWidth = 300
 
@@ -25,6 +30,10 @@ type SidebarProps = DrawerProps & {
 }
 
 const Sidebar = ({ header, items, ...rest }: SidebarProps) => {
+    const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"))
+
+    const { isOpen, toggleDrawer } = useDrawerContext()
+
     return (
         <Drawer
             sx={{
@@ -35,8 +44,10 @@ const Sidebar = ({ header, items, ...rest }: SidebarProps) => {
                     boxSizing: "border-box",
                 },
             }}
-            variant="permanent"
             anchor="left"
+            variant={smDown ? "temporary" : "permanent"}
+            open={isOpen}
+            onClose={toggleDrawer}
             {...rest}
         >
             <div className="p-6">{header}</div>

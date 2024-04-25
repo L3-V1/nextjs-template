@@ -3,26 +3,30 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import Sidebar, { NavItem } from "@/components/Sidebar"
 import HomeIcon from "@mui/icons-material/Home"
-import ViewComfyIcon from '@mui/icons-material/ViewComfy'
+import ViewComfyIcon from "@mui/icons-material/ViewComfy"
+import { ThemeProvider } from "@mui/material"
+import { DefaultTheme } from "@/themes/Default"
+import { DrawerProvider } from "@/contexts/DrawerContext"
+import Navbar from "@/components/Navbar"
 
 const inter = Inter({ subsets: ["latin"] })
 
-const navItems:NavItem[] = [
+const navItems: NavItem[] = [
     {
         label: "Home",
         link: "/",
-        icon: <HomeIcon />
+        icon: <HomeIcon />,
     },
 
     {
         label: "Layout",
         link: "/template",
-        icon: <ViewComfyIcon />
-    }
+        icon: <ViewComfyIcon />,
+    },
 ]
 
 export const metadata: Metadata = {
-    title: "NextJS - Template"
+    title: "NextJS - Template",
 }
 
 export default function RootLayout({
@@ -30,19 +34,28 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
-    
+
     return (
         <html lang="en">
-            <body className={`flex h-screen ${inter.className}`}>
-                <Sidebar 
-                    header={<span className="text-2xl font-light">NextJS - Template</span>}
-                    items={navItems} 
-                />
+            <ThemeProvider theme={DefaultTheme}>
+                <DrawerProvider>
+                    <body className={`flex h-screen ${inter.className}`}>
+                        <Sidebar
+                            header={
+                                <span className="text-2xl font-light">
+                                    NextJS - Template
+                                </span>
+                            }
+                            items={navItems}
+                        />
 
-                <div className="flex-grow bg-zinc-100">
-                    {children}
-                </div>
-            </body>
+                        <div className="flex-grow bg-zinc-100">
+                            <Navbar />
+                            {children}
+                        </div>
+                    </body>
+                </DrawerProvider>
+            </ThemeProvider>
         </html>
     )
 }
