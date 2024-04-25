@@ -49,9 +49,12 @@ export default function RootLayout({
                             items={navItems}
                         />
 
-                        <div className="flex-grow bg-zinc-100">
+                        <div className="flex flex-col flex-grow h-screen bg-zinc-100">
                             <Navbar />
-                            {children}
+                            
+                            <div className="flex-grow">
+                                {children}
+                            </div>
                         </div>
                     </body>
                 </DrawerProvider>
