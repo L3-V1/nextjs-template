@@ -1,12 +1,11 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import Sidebar, { NavItem } from "@/components/Sidebar"
-import HomeIcon from "@mui/icons-material/Home"
-import ViewComfyIcon from "@mui/icons-material/ViewComfy"
 import { ThemeProvider } from "@mui/material"
 import { DefaultTheme } from "@/themes/Default"
 import { DrawerProvider } from "@/contexts/DrawerContext"
+import { HomeIcon } from '@/components/Icons'
+import Sidebar, { NavItem } from "@/components/Sidebar"
 import Navbar from "@/components/Navbar"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -16,13 +15,7 @@ const navItems: NavItem[] = [
         label: "Home",
         link: "/",
         icon: <HomeIcon />,
-    },
-
-    {
-        label: "Layout",
-        link: "/template",
-        icon: <ViewComfyIcon />,
-    },
+    }
 ]
 
 export const metadata: Metadata = {
