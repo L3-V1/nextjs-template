@@ -42,10 +42,10 @@ export default function RootLayout({
                             items={navItems}
                         />
 
-                        <div className="flex flex-col flex-grow h-screen bg-zinc-100">
+                        <div className="flex flex-col flex-grow h-screen">
                             <Navbar />
                             
-                            <div className="flex-grow">
+                            <div className="flex-grow bg-zinc-100">
                                 {children}
                             </div>
                         </div>

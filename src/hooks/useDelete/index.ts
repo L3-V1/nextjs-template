@@ -27,13 +27,15 @@ export default function useDelete<T extends object>(route:string, targetUrl:stri
     const handleDelete = async (dataId?:string) => {
         if(!dataId) return
         try {
-            setIsDeleting(true)
-            const result = await deleteById(dataId)
-            if(!!result){
-                setHasDeleted(true)
-                enqueueSnackbar("Registro excluído com sucesso!", { variant:"success" })
-            } else {
-                enqueueSnackbar("Erro ao excluir registro! Tente mais tarde.", { variant:"error" })
+            if(confirm("Deseja mesmo excluir esse registro?")){
+                setIsDeleting(true)
+                const result = await deleteById(dataId)
+                if(!!result){
+                    setHasDeleted(true)
+                    enqueueSnackbar("Registro excluído com sucesso!", { variant:"success" })
+                } else {
+                    enqueueSnackbar("Erro ao excluir registro! Tente mais tarde.", { variant:"error" })
+                }
             }
         } catch(err:unknown) {
             enqueueSnackbar(`${err}`, { variant:"error" })
