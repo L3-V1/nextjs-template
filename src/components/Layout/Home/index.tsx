@@ -2,16 +2,16 @@
 
 import React from "react"
 import { ServerData } from "@/@types/types"
-import { DataProvider } from "@/contexts/DataContext"
 import { SnackbarProvider } from "notistack"
+import { ServerProvider } from "@/contexts/ServerContext"
 import Home from "./Home"
 
 const HomeWrapper = ({ ...rest }: ServerData) => {
     return (
         <SnackbarProvider>
-            <DataProvider {...rest}>
+            <ServerProvider {...rest}>
                 <Home />
-            </DataProvider>
+            </ServerProvider>
         </SnackbarProvider>
     )
 }
