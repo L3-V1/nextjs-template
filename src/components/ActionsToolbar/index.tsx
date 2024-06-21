@@ -9,7 +9,7 @@ type ActionsToolbarProps = {
     onDelete?: React.MouseEventHandler<HTMLButtonElement>,
     isSaving?:boolean,
     isDeleting?:boolean,
-    showDelete:boolean
+    isEditMode:boolean
 }
 
 const ActionsToolbar = ({
@@ -18,41 +18,47 @@ const ActionsToolbar = ({
     onDelete,
     isSaving,
     isDeleting,
-    showDelete
+    isEditMode
 }: ActionsToolbarProps) => {
     return (
         <Grid container spacing={2}>
-            <Grid item xs={12} md={4} lg={3}>
-                <LoadingButton
-                    fullWidth
-                    loadingPosition="start"
-                    loading={isSaving}
-                    className="bg-blue-500"
-                    variant="contained"
-                    color="info"
-                    size="large"
-                    startIcon={<SaveIcon />}
-                    onClick={onSave}
-                >
-                    Salvar
-                </LoadingButton>
-            </Grid>
+            {
+                !!onSave &&
+                <Grid item xs={12} md={4} lg={3}>
+                    <LoadingButton
+                        fullWidth
+                        loadingPosition="start"
+                        loading={isSaving}
+                        className="bg-blue-500"
+                        variant="contained"
+                        color="info"
+                        size="large"
+                        startIcon={<SaveIcon />}
+                        onClick={onSave}
+                    >
+                        Salvar
+                    </LoadingButton>
+                </Grid>
+            }
 
-            <Grid item xs={12} md={4} lg={3}>
-                <Button
-                    fullWidth
-                    variant="outlined"
-                    color="secondary"
-                    size="large"
-                    startIcon={<ClearIcon />}
-                    onClick={onClear}
-                >
-                    Limpar
-                </Button>
-            </Grid>
+            {
+                !!onClear &&
+                <Grid item xs={12} md={4} lg={3}>
+                    <Button
+                        fullWidth
+                        variant="outlined"
+                        color="secondary"
+                        size="large"
+                        startIcon={<ClearIcon />}
+                        onClick={onClear}
+                    >
+                        Limpar
+                    </Button>
+                </Grid>
+            }
             
             {
-                showDelete &&
+                (!!onDelete && isEditMode) &&
                 <Grid item xs={12} md={4} lg={3}>
                     <LoadingButton
                         fullWidth
