@@ -1,22 +1,20 @@
 import React from "react"
 import Container from "@/components/Container"
-import { Card } from "@/components/Card"
+import { Card, CardActions, CardContent } from "@mui/material"
 
 const Home = () => {
     return (
         <Container>
-            <Card.Root className="md:w-10/12 w-full">
-                <Card.Body>
+            <Card sx={{ width:"80%", padding:2 }}>
+                <CardContent>
                     <div className="text-3xl font-light leading-tight text-center">
                         NextJS - Template
                     </div>
-                </Card.Body>
-                <Card.Footer>
-                    <div className="text-center">
-                        &copy; 2024
-                    </div>
-                </Card.Footer>
-            </Card.Root>
+                </CardContent>
+                <CardActions sx={{ display:"flex", justifyContent:"center" }}>
+                    &copy; 2024
+                </CardActions>
+            </Card>
         </Container>
     )
 }

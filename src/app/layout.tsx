@@ -14,7 +14,7 @@ const navItems: NavItem[] = [
     {
         label: "Home",
         link: "/",
-        icon: <HomeIcon />,
+        icon: <HomeIcon />
     }
 ]
 
@@ -45,7 +45,7 @@ export default function RootLayout({
                         <div className="flex flex-col flex-grow h-screen">
                             <Navbar />
                             
-                            <div className="flex-grow bg-zinc-100">
+                            <div className="flex-grow bg-zinc-200">
                                 {children}
                             </div>
                         </div>
