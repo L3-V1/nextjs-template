@@ -7,6 +7,8 @@ import { DrawerProvider } from "@/contexts/DrawerContext"
 import { HomeIcon } from '@/components/Icons'
 import Sidebar, { NavItem } from "@/components/Sidebar"
 import Navbar from "@/components/Navbar"
+import NextLogo from "@/img/nextjs-icon.svg"
+import Image from "next/image"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -35,9 +37,15 @@ export default function RootLayout({
                     <body className={`flex h-screen ${inter.className}`}>
                         <Sidebar
                             header={
-                                <span className="text-2xl font-light">
-                                    NextJS - Template
-                                </span>
+                                <div className="flex gap-3 justify-center text-2xl font-light">
+                                    <Image
+                                        src={NextLogo}
+                                        alt="NextJS Logo"
+                                        width={30}
+                                        height={30}
+                                    />
+                                    <span>NextJS - Template</span>
+                                </div>
                             }
                             items={navItems}
                         />
